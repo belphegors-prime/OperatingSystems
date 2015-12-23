@@ -1,0 +1,103 @@
+FOR COMPILING SERVER PROGRAM
+gcc printer_spooler.c -o server -lrt -lpthread
+
+FOR COMPILING CLIENT PROGRAM
+gcc printer_client.c -o client -lrt -lpthread
+
+TRACE
+
+		[dblade@cs-12:~/COMP310/A2]$ ./server &
+		[1] 31426
+		[dblade@cs-12:~/COMP310/A2]$ Buffer Empty.
+		./client 1 20 &
+		[2] 31440
+		[dblade@cs-12:~/COMP310/A2]$ 
+		Client 1 requests a 20 page job
+		Server is printing 20 pages from Client 1
+		./client 2 20 &
+		[3] 31452
+		[2]   Done                    ./client 1 20
+		[dblade@cs-12:~/COMP310/A2]$ 
+		Client 2 requests a 20 page job
+		./client 3 20 &
+		[4] 31456
+		[3]   Done                    ./client 2 20
+		[dblade@cs-12:~/COMP310/A2]$ 
+		Client 3 requests a 20 page job
+		./client 4 20 &
+		[5] 31463
+		[4]   Done                    ./client 3 20
+		[dblade@cs-12:~/COMP310/A2]$ 
+		Client 4 requests a 20 page job
+		./client 5 20 &
+		[6] 31473
+		[5]   Done                    ./client 4 20
+		[dblade@cs-12:~/COMP310/A2]$ 
+		Client 5 requests a 20 page job
+		./client 6 20 &
+		[7] 31488
+		[6]   Done                    ./client 5 20
+		[dblade@cs-12:~/COMP310/A2]$ 
+		Client 6 requests a 20 page job
+		./client 6Server is printing 20 pages from Client 2
+		7
+		[8] 31493
+		[7]   Done                    ./client 6 20
+		[dblade@cs-12:~/COMP310/A2]$ 
+		Client 7 requests a 20 page job
+		./client 8 20 &
+		[9] 31504
+		[8]   Done                    ./client 7 20
+		[dblade@cs-12:~/COMP310/A2]$ 
+		Client 8 requests a 20 page job
+		./client 9 20 &
+		[10] 31515
+		[9]   Done                    ./client 8 20
+		[dblade@cs-12:~/COMP310/A2]$ 
+		Client 9 requests a 20 page job
+		./client 10 20 &
+		[11] 31530
+		[10]   Done                    ./client 9 20
+		[dblade@cs-12:~/COMP310/A2]$ 
+		Client 10 requests a 20 page job
+		./client 11 20 &
+		[12] 31537
+		[11]   Done                    ./client 10 20
+		[dblade@cs-12:~/COMP310/A2]$ 
+		Client 11 requests a 20 page job
+		./client 12Server is printing 20 pages from Client 3
+
+		[13] 31541
+		[12]   Done                    ./client 11 20
+		[dblade@cs-12:~/COMP310/A2]$ 
+		Client 12 requests a 20 page job
+		./client 13 20 &
+		[14] 31563
+		[13]   Done                    ./client 12 20
+		[dblade@cs-12:~/COMP310/A2]$ 
+		Client 13 requests a 20 page job
+		./client 13 20 &
+		[15] 31567
+		[14]   Done                    ./client 13 20
+		[dblade@cs-12:~/COMP310/A2]$ Buffer full, Time 2 Chill B)
+		Server is printing 20 pages from Client 4
+
+		Client 13 requests a 20 page job
+		Server is printing 20 pages from Client 5
+		Server is printing 20 pages from Client 6
+		Server is printing 20 pages from Client 7
+		Server is printing 20 pages from Client 8
+		Server is printing 20 pages from Client 9
+		Server is printing 20 pages from Client 10
+		Server is printing 20 pages from Client 11
+		Server is printing 20 pages from Client 12
+		Server is printing 20 pages from Client 13
+		Buffer Empty.
+
+
+
+
+
+
+
+
